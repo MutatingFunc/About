@@ -8,7 +8,7 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "Template Package",
+    name: "About Package",
     platforms: [
         .macOS("14.0"),
         .iOS("17.0"),
@@ -18,12 +18,13 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Template",
-            targets: ["Template"]
+            name: "About",
+            targets: ["About"]
         ),
         .iOSApplication(
-            name: "Template Package",
-            targets: ["Template_App"],
+            name: "About Package",
+            targets: ["About_App"],
+            bundleIdentifier: "James.About",
             teamIdentifier: "VKFDYMU9HJ",
             displayVersion: "1.0",
             bundleVersion: "1",
@@ -43,15 +44,15 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Template",
-            path: "Template"
+            name: "About",
+            path: "About"
         ),
         .executableTarget(
-            name: "Template_App",
+            name: "About_App",
             dependencies: [
-                "Template"
+                "About"
             ],
-            path: "Template_App"
+            path: "About_App"
         )
     ],
     swiftLanguageVersions: [.v5]
