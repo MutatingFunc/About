@@ -3,8 +3,14 @@ import About
 
 struct ContentView: View {
     var body: some View {
-        Text("").sheet(isPresented: .constant(true)) {
-            AboutPage(appName: "About")
+        NavigationStack {
+            Text("")
+                .toolbar {
+                    AboutLink(appName: "About")
+                }
+                .sheet(isPresented: .constant(true)) {
+                    AboutPage(appName: "About")
+                }
         }
     }
 }
