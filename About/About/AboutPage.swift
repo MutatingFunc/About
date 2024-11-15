@@ -22,11 +22,19 @@ public struct AboutPage: View {
                 } else {
                     " or leave a tip"
                 }
-                Text("Hi, I work on this app independently. If you'd like to support me, check out my other apps\(tipText)!")
+                Text("I work on this app independently! If you'd like to support me, check out my other projects\(tipText)…")
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Divider()
                     .padding(.vertical)
+                Link(destination: URL(string: "https://mutatingfunc.github.io/")!) {
+                    Label("MutatingFunc", systemImage: "link")
+                        .font(.title2.bold())
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .foregroundStyle(.white)
+                        .background(.brown.gradient, in: RoundedRectangle(cornerRadius: 8))
+                }.padding(.bottom)
                 MyAppsView()
                 if !productIDs.isEmpty {
                     Divider()
