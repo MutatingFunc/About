@@ -35,6 +35,7 @@ struct AppIcon: View {
                     .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                     .hoverEffect(.lift)
                 Text(app.name)
+                    .minimumScaleFactor(0.5)
                     .lineLimit(1)
             }
         }

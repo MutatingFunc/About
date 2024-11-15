@@ -31,7 +31,7 @@ public struct AboutPage: View {
                     Label("MutatingFunc", systemImage: "link")
                         .font(.title2.bold())
                         .frame(maxWidth: .infinity)
-                        .padding()
+                        .padding(8)
                         .foregroundStyle(.white)
                         .background(.brown.gradient, in: RoundedRectangle(cornerRadius: 8))
                 }.padding(.bottom)
