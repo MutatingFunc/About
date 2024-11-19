@@ -34,7 +34,7 @@ public struct AboutPage: View {
                         .padding(8)
                         .foregroundStyle(.white)
                         .background(.brown.gradient, in: RoundedRectangle(cornerRadius: 8))
-                }.padding(.bottom)
+                }.hoverEffect(.lift).padding(.bottom)
                 MyAppsView()
                 if !productIDs.isEmpty {
                     Divider()
