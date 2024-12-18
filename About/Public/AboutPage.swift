@@ -33,8 +33,7 @@ public struct AboutPage: View {
                         .padding(8)
                         .padding(.horizontal, 8)
                         .foregroundStyle(.white)
-                        .background(LinearGradient(colors: [.white.opacity(0.25), .white.opacity(0)], startPoint: .top, endPoint: .bottom), in: RoundedRectangle(cornerRadius: 16))
-                        .background(.tint, in: RoundedRectangle(cornerRadius: 16))
+                        .background(Color.accentColor.gradient.tertiary, in: RoundedRectangle(cornerRadius: 16))
                 }.hoverEffect(.lift).padding(.bottom)
                 MyAppsView()
                 if !products.isEmpty {

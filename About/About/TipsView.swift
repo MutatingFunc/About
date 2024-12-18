@@ -10,11 +10,10 @@ struct TipsView: View {
                 product.image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .foregroundStyle(.tint)
+                    .foregroundStyle(Color.accentColor.gradient)
             }
                 .padding()
-                .background(LinearGradient(colors: [.white.opacity(0.25), .white.opacity(0)], startPoint: .top, endPoint: .bottom), in: RoundedRectangle(cornerRadius: 16))
-                .background(.tint.quaternary, in: RoundedRectangle(cornerRadius: 16))
+                .background(Color.accentColor.gradient.quaternary, in: RoundedRectangle(cornerRadius: 16))
         }.productViewStyle(.compact)
     }
 }
