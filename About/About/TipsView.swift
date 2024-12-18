@@ -10,7 +10,7 @@ struct TipsView: View {
                 product.image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .foregroundStyle(.brown)
+                    .foregroundStyle(.tint)
             }
                 .padding()
                 .background(LinearGradient(colors: [.white.opacity(0.25), .white.opacity(0)], startPoint: .top, endPoint: .bottom), in: RoundedRectangle(cornerRadius: 16))
