@@ -29,7 +29,7 @@ public struct AboutPage: View {
                     .padding(.vertical)
                 Link(destination: URL(string: "https://mutatingfunc.github.io/")!) {
                     Label("My Blog", systemImage: "link")
-                        .font(.title2.bold())
+                        .font(.title2.weight(.medium))
                         .padding(8)
                         .padding(.horizontal, 8)
                         .foregroundStyle(.foreground)
