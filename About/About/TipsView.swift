@@ -5,7 +5,13 @@ struct TipsView: View {
     var productIDs: [String]
     
     var body: some View {
-        StoreView(ids: productIDs)
+        ForEach(productIDs, id: \.self) { productID in
+            ProductView(id: productID) {
+                Image(systemName: "cup.and.heat.waves")
+            }
+                .padding()
+                .background(.green.tertiary, in: RoundedRectangle(cornerRadius: 16))
+        }.productViewStyle(.compact)
     }
 }
 

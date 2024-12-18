@@ -22,16 +22,16 @@ public struct AboutPage: View {
                 } else {
                     " or leave a tip"
                 }
-                Text("I work on this app independently! If you'd like to support me, check out my other projects\(tipText)…")
+                Text("I work on this app independently! If you'd like to support me, check out my other projects\(tipText)!")
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Divider()
                     .padding(.vertical)
                 Link(destination: URL(string: "https://mutatingfunc.github.io/")!) {
-                    Label("MutatingFunc", systemImage: "link")
+                    Label("My Blog", systemImage: "link")
                         .font(.title2.bold())
-                        .frame(maxWidth: .infinity)
                         .padding(8)
+                        .padding(.horizontal, 8)
                         .foregroundStyle(.white)
                         .background(.brown.gradient, in: RoundedRectangle(cornerRadius: 8))
                 }.hoverEffect(.lift).padding(.bottom)

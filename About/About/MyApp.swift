@@ -22,11 +22,11 @@ enum MyApp: CaseIterable {
         }
     }
     
-    var icon: String {
+    var icon: ImageResource {
         switch self {
-        case .keybuild: "keybuild"
-        case .simpleEdit: "simpleEdit"
-        case .medlied: "medlied"
+        case .keybuild: .keybuild
+        case .simpleEdit: .simpleEdit
+        case .medlied: .medlied
         }
     }
 }

@@ -2,7 +2,7 @@ import SwiftUI
 
 public struct AboutLink: View {
     var appName: String
-    var productIDs: [String] = []
+    var productIDs: [String]
     
     public init(appName: String, productIDs: [String] = []) {
         self.appName = appName

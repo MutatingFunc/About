@@ -9,7 +9,7 @@ struct ContentView: View {
                     AboutLink(appName: "About")
                 }
                 .sheet(isPresented: .constant(true)) {
-                    AboutPage(appName: "About")
+                    AboutPage(appName: "About", productIDs: ["abc", "def", "ghi"])
                 }
         }
     }
