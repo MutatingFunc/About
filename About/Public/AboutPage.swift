@@ -28,7 +28,7 @@ public struct AboutPage: View {
                 Divider()
                     .padding(.vertical)
                 Link(destination: URL(string: "https://mutatingfunc.github.io/")!) {
-                    Label("My Blog", systemImage: "link")
+                    Label("MutatingFunc Blog", systemImage: "link")
                         .font(.title2.weight(.semibold))
                         .fontDesign(.none)
                         .padding(8)
