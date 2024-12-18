@@ -13,7 +13,8 @@ struct TipsView: View {
                     .foregroundStyle(.brown)
             }
                 .padding()
-                .background(.brown.gradient.quaternary, in: RoundedRectangle(cornerRadius: 16))
+                .background(LinearGradient(colors: [.white.opacity(0.25), .white.opacity(0)], startPoint: .top, endPoint: .bottom), in: RoundedRectangle(cornerRadius: 16))
+                .background(.tint.quaternary, in: RoundedRectangle(cornerRadius: 16))
         }.productViewStyle(.compact)
     }
 }
