@@ -27,6 +27,7 @@ public struct AboutPage: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Divider()
                     .padding(.vertical)
+                MyAppsView().padding(.bottom)
                 Link(destination: URL(string: "https://mutatingfunc.github.io/")!) {
                     Label("MutatingFunc Blog", systemImage: "link")
                         .font(.title2.weight(.medium))
@@ -35,8 +36,7 @@ public struct AboutPage: View {
                         .padding(.horizontal, 8)
                         .foregroundStyle(.foreground)
                         .background(Color.accentColor.gradient.tertiary, in: RoundedRectangle(cornerRadius: 16))
-                }.hoverEffect(.lift).padding(.bottom)
-                MyAppsView()
+                }.hoverEffect(.lift)
                 if !products.isEmpty {
                     Divider()
                         .padding(.vertical)
