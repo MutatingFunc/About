@@ -12,6 +12,7 @@ struct Icon: View {
     
     var body: some View {
         VStack {
+            let iconShape = RoundedRectangle(cornerRadius: 16, style: .continuous)
             Image(image)
                 .resizable()
                 .frame(width: 76, height: 76)
@@ -32,7 +33,8 @@ struct Icon: View {
                     }
                 }
                 .compositingGroup()
-                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .clipShape(iconShape)
+                .contentShape([.accessibility, .contextMenuPreview, .dragPreview, .hoverEffect], iconShape)
                 .hoverEffect(.lift)
             if let name {
                 Text(name)
