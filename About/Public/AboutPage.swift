@@ -10,11 +10,38 @@ public struct AboutPage: View {
         self.products = products
     }
     
+    @Environment(\.dismiss) private var dismiss
+    
     public var body: some View {
         ScrollView {
             VStack {
-                Text(appName).font(.largeTitle).bold()
-                Text("by James").font(.title3)
+                let dismissButton = Button {
+                    dismiss()
+                } label: {
+                    Text("Done")
+                        .fontWeight(.medium)
+                }
+                let title = Group {
+                    Text(appName).font(.largeTitle).bold()
+                    Text("by James").font(.title3)
+                }
+                ViewThatFits(in: .horizontal) {
+                    HStack {
+                        dismissButton.hidden()
+                        VStack {
+                            title
+                        }.frame(maxWidth: .infinity)
+                        dismissButton
+                    }
+                    HStack {
+                        VStack(alignment: .leading) {
+                            title
+                        }.frame(maxWidth: .infinity, alignment: .leading)
+                        dismissButton
+                    }
+                    .multilineTextAlignment(.leading)
+                }
+                
                 Divider()
                     .padding(.bottom)
                 let tipText = if products.isEmpty {
