@@ -3,11 +3,11 @@ import SwiftUI
 public struct AboutPage: View {
     
     var appName: String
-    var productIDs: [String]
+    var products: [IAPProduct]
     
-    public init(appName: String, productIDs: [String] = []) {
+    public init(appName: String, products: [IAPProduct] = []) {
         self.appName = appName
-        self.productIDs = productIDs
+        self.products = products
     }
     
     public var body: some View {
@@ -17,7 +17,7 @@ public struct AboutPage: View {
                 Text("by James").font(.title3)
                 Divider()
                     .padding(.bottom)
-                let tipText = if productIDs.isEmpty {
+                let tipText = if products.isEmpty {
                     ""
                 } else {
                     " or leave a tip"
@@ -36,10 +36,10 @@ public struct AboutPage: View {
                         .background(.brown.gradient, in: RoundedRectangle(cornerRadius: 8))
                 }.hoverEffect(.lift).padding(.bottom)
                 MyAppsView()
-                if !productIDs.isEmpty {
+                if !products.isEmpty {
                     Divider()
                         .padding(.vertical)
-                    TipsView(productIDs: productIDs)
+                    TipsView(products: products)
                 }
             }
             .multilineTextAlignment(.center)
@@ -50,6 +50,6 @@ public struct AboutPage: View {
 
 #Preview {
     Text("").sheet(isPresented: .constant(true)) {
-        AboutPage(appName: "About", productIDs: ["abc"])
+        AboutPage(appName: "About", products: [.example])
     }
 }

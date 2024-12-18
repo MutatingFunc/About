@@ -2,11 +2,11 @@ import SwiftUI
 
 public struct AboutLink: View {
     var appName: String
-    var productIDs: [String]
+    var products: [IAPProduct]
     
-    public init(appName: String, productIDs: [String] = []) {
+    public init(appName: String, products: [IAPProduct] = []) {
         self.appName = appName
-        self.productIDs = productIDs
+        self.products = products
     }
     
     @State private var showAbout = false
@@ -17,11 +17,11 @@ public struct AboutLink: View {
         } label: {
             Label("About", systemImage: "list.clipboard")
         }.sheet(isPresented: $showAbout) {
-            AboutPage(appName: appName, productIDs: productIDs)
+            AboutPage(appName: appName, products: products)
         }
     }
 }
 
 #Preview {
-    AboutLink(appName: "About", productIDs: ["abc"])
+    AboutLink(appName: "About", products: [.example])
 }

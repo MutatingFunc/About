@@ -2,12 +2,14 @@ import SwiftUI
 import StoreKit
 
 struct TipsView: View {
-    var productIDs: [String]
+    var products: [IAPProduct]
     
     var body: some View {
-        ForEach(productIDs, id: \.self) { productID in
-            ProductView(id: productID) {
-                Image(systemName: "cup.and.heat.waves")
+        ForEach(products) { product in
+            ProductView(id: product.id) {
+                product.image
+                    .resizable()
+                    .foregroundStyle(.brown)
             }
                 .padding()
                 .background(.green.tertiary, in: RoundedRectangle(cornerRadius: 16))
@@ -16,5 +18,5 @@ struct TipsView: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    TipsView(productIDs: [])
+    TipsView(products: [.example])
 }

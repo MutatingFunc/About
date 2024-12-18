@@ -9,7 +9,11 @@ struct ContentView: View {
                     AboutLink(appName: "About")
                 }
                 .sheet(isPresented: .constant(true)) {
-                    AboutPage(appName: "About", productIDs: ["abc", "def", "ghi"])
+                    AboutPage(appName: "About", products: [
+                        IAPProduct(id: "abc", image: Image(systemName: "cup.and.heat.waves")),
+                        IAPProduct(id: "def", image: Image(systemName: "cup.and.heat.waves")),
+                        IAPProduct(id: "ghi", image: Image(systemName: "cup.and.heat.waves")),
+                    ])
                 }
         }
     }
