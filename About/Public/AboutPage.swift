@@ -32,6 +32,7 @@ public struct AboutPage: View {
                         .font(.title2.bold())
                         .padding(8)
                         .padding(.horizontal, 8)
+                        .foregroundStyle(.foreground)
                         .background(Color.accentColor.gradient.tertiary, in: RoundedRectangle(cornerRadius: 16))
                 }.hoverEffect(.lift).padding(.bottom)
                 MyAppsView()
