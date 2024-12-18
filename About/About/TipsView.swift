@@ -9,6 +9,7 @@ struct TipsView: View {
             ProductView(id: product.id) {
                 product.image
                     .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .foregroundStyle(.brown)
             }
                 .padding()
