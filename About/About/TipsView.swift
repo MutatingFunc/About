@@ -16,14 +16,21 @@ struct TipsView: View {
                     isRestoring = false
                 }
             } label: {
-                if isRestoring {
-                    ProgressView()
-                        .accessibilityLabel("Restoring purchases…")
-                } else {
-                    Text("Restore purchases")
-                        .bold()
+                Group {
+                    if isRestoring {
+                        ProgressView()
+                            .accessibilityLabel("Restoring purchases…")
+                    } else {
+                        Text("Restore purchases")
+                            .fontWeight(.medium)
+                    }
                 }
-            }.disabled(isRestoring)
+                .padding(8)
+                .padding(.horizontal, 4)
+                .hoverEffect(.highlight)
+            }
+            .disabled(isRestoring)
+            .frame(maxWidth: .infinity, alignment: .trailing)
         }
         ForEach(products) { product in
             ProductView(id: product.id) {
@@ -32,8 +39,9 @@ struct TipsView: View {
                     .aspectRatio(contentMode: .fit)
                     .foregroundStyle(Color.accentColor.gradient)
             }
-                .padding()
-                .background(Color(uiColor: .systemBackground).gradient.secondary, in: RoundedRectangle(cornerRadius: 16))
+            .padding()
+            .background(Color(uiColor: .systemBackground).gradient.secondary)
+            .about_thinBorder(RoundedRectangle(cornerRadius: 16))
         }.productViewStyle(.compact)
     }
 }
