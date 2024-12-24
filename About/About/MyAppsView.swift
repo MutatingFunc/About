@@ -2,10 +2,12 @@ import SwiftUI
 import StoreKit
 
 struct MyAppsView: View {
+    var currentApp: MyApp?
+    
     var body: some View {
         ScrollView(.horizontal) {
             LazyHStack {
-                ForEach(MyApp.allCases, id: \.appID) { app in
+                ForEach(Array(MyApp.allCases.filter { $0 != currentApp }), id: \.appID) { app in
                     AppIcon(app: app)
                 }
                 .frame(width: 84)
@@ -15,5 +17,5 @@ struct MyAppsView: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    MyAppsView()
+    MyAppsView(currentApp: nil)
 }

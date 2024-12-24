@@ -1,12 +1,12 @@
 import SwiftUI
 
 public struct AboutLink: View {
-    var appName: String
+    var app: MyApp
     var showRestorePurchasesButton: Bool
     var products: [IAPProduct]
     
-    public init(appName: String, showRestorePurchasesButton: Bool, products: [IAPProduct] = []) {
-        self.appName = appName
+    public init(app: MyApp, showRestorePurchasesButton: Bool, products: [IAPProduct] = []) {
+        self.app = app
         self.showRestorePurchasesButton = showRestorePurchasesButton
         self.products = products
     }
@@ -19,11 +19,11 @@ public struct AboutLink: View {
         } label: {
             Label("About", systemImage: "info.circle")
         }.sheet(isPresented: $showAbout) {
-            AboutPage(appName: appName, showRestorePurchasesButton: showRestorePurchasesButton, products: products)
+            AboutPage(app: app, showRestorePurchasesButton: showRestorePurchasesButton, products: products)
         }
     }
 }
 
 #Preview {
-    AboutLink(appName: "About", showRestorePurchasesButton: true, products: [.example])
+    AboutLink(app: .simpleEdit, showRestorePurchasesButton: true, products: [.example])
 }

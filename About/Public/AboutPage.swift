@@ -2,12 +2,12 @@ import SwiftUI
 
 public struct AboutPage: View {
     
-    var appName: String
+    var app: MyApp
     var showRestorePurchasesButton: Bool
     var products: [IAPProduct]
     
-    public init(appName: String, showRestorePurchasesButton: Bool, products: [IAPProduct] = []) {
-        self.appName = appName
+    public init(app: MyApp, showRestorePurchasesButton: Bool, products: [IAPProduct] = []) {
+        self.app = app
         self.showRestorePurchasesButton = showRestorePurchasesButton
         self.products = products
     }
@@ -24,25 +24,17 @@ public struct AboutPage: View {
                         .fontWeight(.medium)
                 }
                 let title = Group {
-                    Text(appName).font(.largeTitle).bold()
+                    Text(app.name).font(.largeTitle).bold()
                     Text("by James").font(.title3)
                 }.lineLimit(nil)
-                ViewThatFits(in: .horizontal) {
-                    HStack {
-                        dismissButton.hidden()
-                        VStack {
-                            title
-                        }.frame(maxWidth: .infinity)
-                        dismissButton
-                    }
-                    HStack {
-                        VStack(alignment: .leading) {
-                            title
-                        }.frame(maxWidth: .infinity, alignment: .leading)
-                        dismissButton
-                    }
-                    .multilineTextAlignment(.leading)
+                HStack {
+                    AppIcon(app: app, includeName: false)
+                    VStack(alignment: .leading) {
+                        title
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                    dismissButton
                 }
+                .multilineTextAlignment(.leading)
                 
                 Divider()
                     .padding(.bottom)
@@ -56,7 +48,7 @@ public struct AboutPage: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Divider()
                     .padding(.vertical)
-                MyAppsView().padding(.bottom)
+                MyAppsView(currentApp: app).padding(.bottom)
                 Link(destination: URL(string: "https://mutatingfunc.github.io/")!) {
                     Label("MutatingFunc Blog", systemImage: "link")
                         .font(.title2.weight(.medium))
@@ -64,7 +56,7 @@ public struct AboutPage: View {
                         .padding(8)
                         .padding(.horizontal, 8)
                         .foregroundStyle(.foreground)
-                        .background(Color.accentColor.gradient.tertiary, in: RoundedRectangle(cornerRadius: 16))
+                        .background(Color(uiColor: .systemBackground).gradient.secondary, in: RoundedRectangle(cornerRadius: 16))
                 }.hoverEffect(.lift)
                 if !products.isEmpty {
                     Divider()
@@ -80,6 +72,6 @@ public struct AboutPage: View {
 
 #Preview {
     Text("").sheet(isPresented: .constant(true)) {
-        AboutPage(appName: "About", showRestorePurchasesButton: true, products: [.example])
+        AboutPage(app: .simpleEdit, showRestorePurchasesButton: true, products: [.example])
     }
 }

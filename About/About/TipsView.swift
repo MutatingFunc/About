@@ -33,7 +33,7 @@ struct TipsView: View {
                     .foregroundStyle(Color.accentColor.gradient)
             }
                 .padding()
-                .background(Color.accentColor.gradient.quaternary, in: RoundedRectangle(cornerRadius: 16))
+                .background(Color(uiColor: .systemBackground).gradient.secondary, in: RoundedRectangle(cornerRadius: 16))
         }.productViewStyle(.compact)
     }
 }

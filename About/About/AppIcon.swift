@@ -3,13 +3,14 @@ import StoreKit
 
 struct AppIcon: View {
     var app: MyApp
+    var includeName: Bool = true
     
     @State private var showAppStoreOverlay = false
     var body: some View {
         Button {
             showAppStoreOverlay = true
         } label: {
-            Icon(app.icon, name: app.name)
+            Icon(app.icon, name: includeName ? app.name : nil)
         }
         .buttonStyle(.plain)
         .appStoreOverlay(isPresented: $showAppStoreOverlay) {
@@ -19,5 +20,5 @@ struct AppIcon: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    AppIcon(app: .keybuild)
+    AppIcon(app: .simpleEdit)
 }
