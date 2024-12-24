@@ -26,7 +26,7 @@ public struct AboutPage: View {
                 let title = Group {
                     Text(appName).font(.largeTitle).bold()
                     Text("by James").font(.title3)
-                }
+                }.lineLimit(nil)
                 ViewThatFits(in: .horizontal) {
                     HStack {
                         dismissButton.hidden()
