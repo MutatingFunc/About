@@ -3,10 +3,12 @@ import SwiftUI
 public struct AboutPage: View {
     
     var appName: String
+    var showRestorePurchasesButton: Bool
     var products: [IAPProduct]
     
-    public init(appName: String, products: [IAPProduct] = []) {
+    public init(appName: String, showRestorePurchasesButton: Bool, products: [IAPProduct] = []) {
         self.appName = appName
+        self.showRestorePurchasesButton = showRestorePurchasesButton
         self.products = products
     }
     
@@ -67,7 +69,7 @@ public struct AboutPage: View {
                 if !products.isEmpty {
                     Divider()
                         .padding(.vertical)
-                    TipsView(products: products)
+                    TipsView(showRestorePurchasesButton: showRestorePurchasesButton, products: products)
                 }
             }
             .multilineTextAlignment(.center)
@@ -78,6 +80,6 @@ public struct AboutPage: View {
 
 #Preview {
     Text("").sheet(isPresented: .constant(true)) {
-        AboutPage(appName: "About", products: [.example])
+        AboutPage(appName: "About", showRestorePurchasesButton: true, products: [.example])
     }
 }

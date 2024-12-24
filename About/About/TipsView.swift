@@ -2,9 +2,29 @@ import SwiftUI
 import StoreKit
 
 struct TipsView: View {
+    var showRestorePurchasesButton: Bool
     var products: [IAPProduct]
     
+    @State private var isRestoring = false
+    
     var body: some View {
+        if showRestorePurchasesButton {
+            Button {
+                Task {
+                    isRestoring = true
+                    try? await AppStore.sync()
+                    isRestoring = false
+                }
+            } label: {
+                if isRestoring {
+                    ProgressView()
+                        .accessibilityLabel("Restoring purchases…")
+                } else {
+                    Text("Restore purchases")
+                        .bold()
+                }
+            }.disabled(isRestoring)
+        }
         ForEach(products) { product in
             ProductView(id: product.id) {
                 product.image
@@ -19,5 +39,5 @@ struct TipsView: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    TipsView(products: [.example])
+    TipsView(showRestorePurchasesButton: true, products: [.example])
 }

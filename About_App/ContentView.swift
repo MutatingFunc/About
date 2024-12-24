@@ -6,14 +6,18 @@ struct ContentView: View {
         NavigationStack {
             Text("")
                 .toolbar {
-                    AboutLink(appName: "About")
+                    AboutLink(appName: "About", showRestorePurchasesButton: true)
                 }
                 .sheet(isPresented: .constant(true)) {
-                    AboutPage(appName: "About", products: [
-                        IAPProduct(id: "abc", image: Image(systemName: "cup.and.heat.waves")),
-                        IAPProduct(id: "def", image: Image(systemName: "cup.and.heat.waves")),
-                        IAPProduct(id: "ghi", image: Image(systemName: "cup.and.heat.waves")),
-                    ])
+                    AboutPage(
+                        appName: "About",
+                        showRestorePurchasesButton: true,
+                        products: [
+                            IAPProduct(id: "abc", image: Image(systemName: "cup.and.heat.waves")),
+                            IAPProduct(id: "def", image: Image(systemName: "cup.and.heat.waves")),
+                            IAPProduct(id: "ghi", image: Image(systemName: "cup.and.heat.waves")),
+                        ]
+                    )
                 }
         }
     }

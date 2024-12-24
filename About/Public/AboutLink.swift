@@ -2,10 +2,12 @@ import SwiftUI
 
 public struct AboutLink: View {
     var appName: String
+    var showRestorePurchasesButton: Bool
     var products: [IAPProduct]
     
-    public init(appName: String, products: [IAPProduct] = []) {
+    public init(appName: String, showRestorePurchasesButton: Bool, products: [IAPProduct] = []) {
         self.appName = appName
+        self.showRestorePurchasesButton = showRestorePurchasesButton
         self.products = products
     }
     
@@ -15,13 +17,13 @@ public struct AboutLink: View {
         Button {
             showAbout.toggle()
         } label: {
-            Label("About", systemImage: "list.clipboard")
+            Label("About", systemImage: "info.circle")
         }.sheet(isPresented: $showAbout) {
-            AboutPage(appName: appName, products: products)
+            AboutPage(appName: appName, showRestorePurchasesButton: showRestorePurchasesButton, products: products)
         }
     }
 }
 
 #Preview {
-    AboutLink(appName: "About", products: [.example])
+    AboutLink(appName: "About", showRestorePurchasesButton: true, products: [.example])
 }
