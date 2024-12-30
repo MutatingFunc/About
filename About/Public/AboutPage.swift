@@ -79,7 +79,7 @@ public struct AboutPage: View {
     
     @ViewBuilder
     func header(expanded: Bool) -> some View {
-        VStack {
+        VStack(spacing: 0) {
             let dismissButton = Button {
                 dismiss()
             } label: {
@@ -112,8 +112,8 @@ public struct AboutPage: View {
                 dismissButton
             }
             .multilineTextAlignment(.leading)
-            .safeAreaPadding([.top, .horizontal])
-            .padding(.bottom, 4)
+            .safeAreaPadding([.top, .horizontal], expanded ? 8 : 4)
+            .padding(.bottom, expanded ? 8 : 4)
             
             Divider()
         }
