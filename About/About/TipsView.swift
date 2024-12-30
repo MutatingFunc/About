@@ -17,12 +17,13 @@ struct TipsView: View {
                 }
             } label: {
                 Group {
+                    let s = products.count > 1 ? "s" : ""
                     if isRestoring {
                         ProgressView()
-                            .accessibilityLabel("Restoring purchases…")
+                            .accessibilityLabel("Restoring purchase\(s)…")
                     } else {
-                        Text("Restore purchases")
-                            .fontWeight(.medium)
+                        Text("Restore purchase\(s)")
+                            .font(.caption)
                     }
                 }
                 .padding(8)
