@@ -13,22 +13,36 @@ public struct AboutPage: View {
     @Environment(\.dismiss) private var dismiss
     @State private var scrollOffsetY: Double = 0
     @State private var isExpanded = true
+    @State private var inlineRestore = false
     
     public var body: some View {
         ScrollViewReader { scrollView in
             ScrollView {
                 VStack(alignment: .leading) {
                     if !config.features.isEmpty {
-                        Text("🔑 Unlock Features")
-                            .font(.headline)
+                        ViewThatFits(in: .horizontal) {
+                            HStack(alignment: .firstTextBaseline) {
+                                Text("🔑 Unlock Features")
+                                    .lineLimit(1)
+                                    .font(.headline)
+                                RestorePurchasesButton(iapCount: config.features.count)
+                                    .lineLimit(1)
+                                    .onAppear { inlineRestore = true }
+                                    .onDisappear { inlineRestore = false }
+                            }
+                            Text("🔑 Unlock Features")
+                                .font(.headline)
+                        }
                         Text("I work on this app independently. Your support means a lot!")
                             .font(.footnote)
-                        RestorePurchasesButton(iapCount: config.features.count)
+                        if !inlineRestore {
+                            RestorePurchasesButton(iapCount: config.features.count)
+                        }
                         IAPView(iaps: config.features)
                             .multilineTextAlignment(.center)
                             .padding(.vertical, 4)
                         if config.features.reduce(true, { $0 && $1.isKnownUnlocked }) {
-                            Text("You unlocked the full app. Thank you so much! ☺️❤️")
+                            Text("You unlocked the full app. Thank you so much! 🥰")
                                 .font(.caption)
                         }
                         Divider()
@@ -134,25 +148,32 @@ public struct AboutPage: View {
     }
 }
 
-#Preview {
+#Preview("Large text") {
+    Text("").sheet(isPresented: .constant(true)) {
+        AboutPage(app: .simpleEdit, features: [.example], tips: [.example, .example, .example])
+            .dynamicTypeSize(.xxxLarge)
+    }
+}
+
+#Preview("Full") {
     Text("").sheet(isPresented: .constant(true)) {
         AboutPage(app: .simpleEdit, features: [.example], tips: [.example, .example, .example])
     }
 }
 
-#Preview {
+#Preview("Tips") {
     Text("").sheet(isPresented: .constant(true)) {
         AboutPage(app: .simpleEdit, tips: [.example, .example, .example])
     }
 }
 
-#Preview {
+#Preview("Features") {
     Text("").sheet(isPresented: .constant(true)) {
         AboutPage(app: .simpleEdit, features: [.example])
     }
 }
 
-#Preview {
+#Preview("Empty") {
     Text("").sheet(isPresented: .constant(true)) {
         AboutPage(app: .simpleEdit)
     }
