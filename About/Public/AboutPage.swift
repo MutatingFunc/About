@@ -43,7 +43,8 @@ public struct AboutPage: View {
                             .padding(.vertical, 4)
                         if config.features.reduce(true, { $0 && $1.isKnownUnlocked }) {
                             Text("You unlocked the full app. Thank you so much! 🥰")
-                                .font(.caption)
+                                .font(.footnote.weight(.medium))
+                                .padding(.top, 2)
                         }
                         Divider()
                             .padding(.vertical, 4)
