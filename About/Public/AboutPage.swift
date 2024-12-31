@@ -20,18 +20,20 @@ public struct AboutPage: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     if !config.features.isEmpty {
+                        let unlockHeadingText = Text("Unlock Features")
+                        let unlockHeading = (Text("🔑 ") + unlockHeadingText)
+                            .accessibilityLabel(unlockHeadingText)
+                            .font(.headline)
                         ViewThatFits(in: .horizontal) {
                             HStack(alignment: .firstTextBaseline) {
-                                Text("🔑 Unlock Features")
+                                unlockHeading
                                     .lineLimit(1)
-                                    .font(.headline)
                                 RestorePurchasesButton(iapCount: config.features.count)
                                     .lineLimit(1)
                                     .onAppear { inlineRestore = true }
                                     .onDisappear { inlineRestore = false }
                             }
-                            Text("🔑 Unlock Features")
-                                .font(.headline)
+                            unlockHeading
                         }
                         Text("I work on this app independently. Your support means a lot!")
                             .font(.footnote)
@@ -49,7 +51,9 @@ public struct AboutPage: View {
                         Divider()
                             .padding(.vertical, 4)
                     }
-                    Text("✨ My Apps")
+                    let myAppsHeadingText = Text("My Apps")
+                    (Text("✨ ") + myAppsHeadingText)
+                        .accessibilityLabel(myAppsHeadingText)
                         .font(.headline)
                     Text("If you're enjoying \(config.app.name), you might like my other works too!")
                         .font(.footnote)
@@ -59,7 +63,9 @@ public struct AboutPage: View {
                     if !config.tips.isEmpty {
                         Divider()
                             .padding(.vertical, 4)
-                        Text("💝 Tip Jar")
+                        let tipJarHeadingText = Text("Tip Jar")
+                        (Text("💝 ") + tipJarHeadingText)
+                            .accessibilityLabel(tipJarHeadingText)
                             .font(.headline)
                         Text("If you're feeling generous, you can directly support me in bringing you new features regularly!")
                             .font(.footnote)
