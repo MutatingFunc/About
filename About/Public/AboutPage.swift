@@ -2,14 +2,12 @@ import SwiftUI
 
 public struct AboutPage: View {
     
-    var app: MyApp
-    var showRestorePurchasesButton: Bool
-    var products: [IAPProduct]
-    
-    public init(app: MyApp, showRestorePurchasesButton: Bool, products: [IAPProduct] = []) {
-        self.app = app
-        self.showRestorePurchasesButton = showRestorePurchasesButton
-        self.products = products
+    var config: AboutPageConfiguration
+    public init(_ configuration: AboutPageConfiguration) {
+        self.config = configuration
+    }
+    public init(app: MyApp, features: [IAPProduct] = [], tips: [IAPProduct] = []) {
+        self.config = .init(app: app, features: features, tips: tips)
     }
     
     @Environment(\.dismiss) private var dismiss
@@ -19,37 +17,43 @@ public struct AboutPage: View {
     public var body: some View {
         ScrollViewReader { scrollView in
             ScrollView {
-                VStack {
-                    let tipText = if products.isEmpty {
-                        ""
-                    } else {
-                        " or leave a tip"
-                    }
-                    Text("I work on this app independently! If you'd like to support me, check out my other projects\(tipText)!")
-                        .multilineTextAlignment(.leading)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Divider()
-                        .padding(.bottom)
-                    MyAppsView(currentApp: app)
-                        .padding(.bottom)
-                    Link(destination: URL(string: "https://mutatingfunc.github.io/")!) {
-                        Label("MutatingFunc Blog", systemImage: "link")
-                            .font(.title2.weight(.medium))
-                            .fontDesign(.none)
-                            .padding(8)
-                            .padding(.horizontal, 8)
-                            .foregroundStyle(.foreground)
-                            .background(Color(uiColor: .systemBackground).gradient.secondary)
-                    }
-                    .about_thinBorder(RoundedRectangle(cornerRadius: 16))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.bottom)
-                    if !products.isEmpty {
+                VStack(alignment: .leading) {
+                    if !config.features.isEmpty {
+                        Text("🔑 Unlock Features")
+                            .font(.headline)
+                        Text("I work on this app independently. Your support means a lot!")
+                            .font(.footnote)
+                        RestorePurchasesButton(iapCount: config.features.count)
+                        IAPView(iaps: config.features)
+                            .multilineTextAlignment(.center)
+                            .padding(.vertical, 4)
+                        if config.features.reduce(true, { $0 && $1.isKnownUnlocked }) {
+                            Text("You unlocked the full app. Thank you so much! ☺️❤️")
+                                .font(.caption)
+                        }
                         Divider()
-                        TipsView(showRestorePurchasesButton: showRestorePurchasesButton, products: products)
+                            .padding(.vertical, 4)
+                    }
+                    Text("✨ My Apps")
+                        .font(.headline)
+                    Text("If you're enjoying \(config.app.name), you might like my other works too!")
+                        .font(.footnote)
+                    MyAppsView(currentApp: config.app)
+                        .multilineTextAlignment(.center)
+                        .padding(.vertical, 4)
+                    if !config.tips.isEmpty {
+                        Divider()
+                            .padding(.vertical, 4)
+                        Text("💝 Tip Jar")
+                            .font(.headline)
+                        Text("If you're feeling generous, you can directly support me in bringing you new features regularly!")
+                            .font(.footnote)
+                        IAPView(iaps: config.tips)
+                            .multilineTextAlignment(.center)
+                            .padding(.vertical, 4)
                     }
                 }
-                .multilineTextAlignment(.center)
+                .multilineTextAlignment(.leading)
                 .safeAreaPadding()
                 .background {
                     GeometryReader { geometry in
@@ -74,8 +78,11 @@ public struct AboutPage: View {
                 header(expanded: isExpanded)
                     .animation(.default.speed(2), value: isExpanded)
             }
+            .productViewStyle(.compact)
         }
     }
+    
+    @State private var isHoveringBlogLink = false
     
     @ViewBuilder
     func header(expanded: Bool) -> some View {
@@ -85,16 +92,22 @@ public struct AboutPage: View {
             } label: {
                 Text("Done")
                     .fontWeight(.medium)
-                    .padding(4)
-                    .padding(.horizontal, 4)
+                    .padding(8)
                     .hoverEffect(.highlight)
                     .frame(minWidth: 44, minHeight: 44)
             }
             let title = Group {
-                Text(app.name).font(.largeTitle).bold()
+                Text(config.app.name).font(.largeTitle).bold()
                 if expanded {
-                    Text("by James").font(.title3)
-                        .transition(.blurReplace.combined(with: .move(edge: .top)))
+                    Link(destination: URL(string: "https://mutatingfunc.github.io/")!) {
+                        Text("by James \(Image(systemName: "arrow.up.right.square"))")
+                            .font(.title3)
+                            .opacity(isHoveringBlogLink ? 0.6 : 1)
+                            .animation(.default, value: isHoveringBlogLink)
+                    }.onHover { isHovering in
+                        isHoveringBlogLink = isHovering
+                    }
+                    .transition(.blurReplace.combined(with: .move(edge: .top)))
                 }
             }.lineLimit(nil)
             HStack {
@@ -102,7 +115,7 @@ public struct AboutPage: View {
                 Color.clear
                     .frame(width: iconHeight, height: iconHeight)
                     .overlay {
-                        AppIcon(app: app, includeName: false)
+                        AppIcon(app: config.app, includeName: false)
                             .frame(width: 76, height: 76)
                             .scaleEffect(expanded ? 1 : 0.5)
                     }
@@ -123,6 +136,24 @@ public struct AboutPage: View {
 
 #Preview {
     Text("").sheet(isPresented: .constant(true)) {
-        AboutPage(app: .simpleEdit, showRestorePurchasesButton: true, products: [.example])
+        AboutPage(app: .simpleEdit, features: [.example], tips: [.example, .example, .example])
+    }
+}
+
+#Preview {
+    Text("").sheet(isPresented: .constant(true)) {
+        AboutPage(app: .simpleEdit, tips: [.example, .example, .example])
+    }
+}
+
+#Preview {
+    Text("").sheet(isPresented: .constant(true)) {
+        AboutPage(app: .simpleEdit, features: [.example])
+    }
+}
+
+#Preview {
+    Text("").sheet(isPresented: .constant(true)) {
+        AboutPage(app: .simpleEdit)
     }
 }
