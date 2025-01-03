@@ -14,6 +14,8 @@ public struct AboutPage: View {
     @State private var scrollOffsetY: Double = 0
     @State private var isExpanded = true
     @State private var inlineRestore = false
+    @Environment(\.requestReview) private var requestReview
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     
     public var body: some View {
         ScrollViewReader { scrollView in
@@ -63,12 +65,42 @@ public struct AboutPage: View {
                     if !config.tips.isEmpty {
                         Divider()
                             .padding(.vertical, 8)
-                        let tipJarHeadingText = Text("Tip Jar")
+                        let tipJarHeadingText = Text("Help Out")
                         (Text("💝 ") + tipJarHeadingText)
                             .accessibilityLabel(tipJarHeadingText)
                             .font(.headline)
                         Text("If you're feeling generous, you can directly support me in bringing you new features regularly!")
                             .font(.footnote)
+                        Button {
+                            requestReview()
+                        } label: {
+                            let layout = dynamicTypeSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading)) : AnyLayout(HStackLayout())
+                            layout {
+                                Image(systemName: "message")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxHeight: 48)
+                                    .padding(.horizontal, 4)
+                                    .accessibilityHidden(true)
+                                    .foregroundStyle(Color.accentColor.gradient)
+                                VStack(alignment: .leading) {
+                                    Text("Leave A Review")
+                                        .font(.callout)
+                                        .padding(.bottom, 1)
+                                    Text("This helps the app get seen")
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .multilineTextAlignment(.leading)
+                                .foregroundStyle(.primary)
+                            }
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .about_iap()
+                        }
+                        .buttonStyle(.plain)
+                        .padding(.vertical, 4)
                         IAPView(iaps: config.tips)
                             .multilineTextAlignment(.center)
                             .padding(.vertical, 4)
@@ -121,7 +153,9 @@ public struct AboutPage: View {
                 Text(config.app.name).font(.largeTitle).bold()
                 if expanded {
                     Link(destination: URL(string: "https://mutatingfunc.github.io/")!) {
-                        Text("by James \(Image(systemName: "arrow.up.right.square"))")
+                        let byLine = "by James"
+                        (Text("\(byLine) ") + Text("\(Image(systemName: "arrow.up.right.square"))").font(.caption))
+                            .accessibilityLabel(byLine)
                             .font(.title3)
                             .opacity(isHoveringBlogLink ? 0.6 : 1)
                             .animation(.default, value: isHoveringBlogLink)
@@ -158,7 +192,7 @@ public struct AboutPage: View {
 #Preview("Large text") {
     Text("").sheet(isPresented: .constant(true)) {
         AboutPage(app: .simpleEdit, features: [.example], tips: [.example, .example, .example])
-            .dynamicTypeSize(.xxxLarge)
+            .dynamicTypeSize(.accessibility5)
     }
 }
 
