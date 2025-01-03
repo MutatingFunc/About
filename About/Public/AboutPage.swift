@@ -26,6 +26,8 @@ public struct AboutPage: View {
                         let unlockHeading = (Text("🔑 ") + unlockHeadingText)
                             .accessibilityLabel(unlockHeadingText)
                             .font(.headline)
+                            .accessibilityHeading(.h2)
+                            .accessibilityAddTraits(.isHeader)
                         ViewThatFits(in: .horizontal) {
                             HStack(alignment: .firstTextBaseline) {
                                 unlockHeading
@@ -57,6 +59,8 @@ public struct AboutPage: View {
                     (Text("✨ ") + myAppsHeadingText)
                         .accessibilityLabel(myAppsHeadingText)
                         .font(.headline)
+                        .accessibilityHeading(.h2)
+                        .accessibilityAddTraits(.isHeader)
                     Text("If you're enjoying \(config.app.name), you might like my other works too!")
                         .font(.footnote)
                     MyAppsView(currentApp: config.app)
@@ -69,6 +73,8 @@ public struct AboutPage: View {
                         (Text("💝 ") + tipJarHeadingText)
                             .accessibilityLabel(tipJarHeadingText)
                             .font(.headline)
+                            .accessibilityHeading(.h2)
+                            .accessibilityAddTraits(.isHeader)
                         Text("If you're feeling generous, you can directly support me in bringing you new features regularly!")
                             .font(.footnote)
                         Button {
@@ -151,11 +157,12 @@ public struct AboutPage: View {
             }
             let title = Group {
                 Text(config.app.name).font(.largeTitle).bold()
+                    .accessibilityHidden(true) // Use button as heading
                 if expanded {
                     Link(destination: URL(string: "https://mutatingfunc.github.io/")!) {
                         let byLine = "by James"
-                        (Text("\(byLine) ") + Text("\(Image(systemName: "arrow.up.right.square"))").font(.caption))
-                            .accessibilityLabel(byLine)
+                        (Text("\(byLine) ") + Text("\(Image(systemName: "arrow.up.right.square"))").font(.callout))
+                            .accessibilityLabel(byLine).accessibilityHint(Text("Opens my blog, which includes contact info"))
                             .font(.title3)
                             .opacity(isHoveringBlogLink ? 0.6 : 1)
                             .animation(.default, value: isHoveringBlogLink)
@@ -173,6 +180,8 @@ public struct AboutPage: View {
                         AppIcon(app: config.app, includeName: false)
                             .frame(width: 76, height: 76)
                             .scaleEffect(expanded ? 1 : 0.5)
+                            .accessibilityHeading(.h1)
+                            .accessibilityAddTraits(.isHeader)
                     }
                 VStack(alignment: .leading) {
                     title

@@ -13,6 +13,7 @@ struct AppIcon: View {
             Icon(app.icon, name: includeName ? app.name : nil)
         }
         .buttonStyle(.plain)
+        .accessibilityHint(Text("Opens an App Store banner"))
         .appStoreOverlay(isPresented: $showAppStoreOverlay) {
             SKOverlay.AppConfiguration(appIdentifier: app.appID, position: .bottomRaised)
         }
