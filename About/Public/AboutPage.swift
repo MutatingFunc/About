@@ -49,7 +49,7 @@ public struct AboutPage: View {
                                 .padding(.top, 2)
                         }
                         Divider()
-                            .padding(.vertical, 4)
+                            .padding(.vertical, 8)
                     }
                     let myAppsHeadingText = Text("My Apps")
                     (Text("✨ ") + myAppsHeadingText)
@@ -62,7 +62,7 @@ public struct AboutPage: View {
                         .padding(.vertical, 4)
                     if !config.tips.isEmpty {
                         Divider()
-                            .padding(.vertical, 4)
+                            .padding(.vertical, 8)
                         let tipJarHeadingText = Text("Tip Jar")
                         (Text("💝 ") + tipJarHeadingText)
                             .accessibilityLabel(tipJarHeadingText)
