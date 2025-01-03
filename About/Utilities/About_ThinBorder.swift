@@ -13,4 +13,9 @@ extension View {
             .hoverEffect(.lift)
             .padding(-1)
     }
+    func about_iap() -> some View {
+        self
+            .background(Color(uiColor: .systemBackground).gradient.secondary)
+            .about_thinBorder(RoundedRectangle(cornerRadius: 16))
+    }
 }

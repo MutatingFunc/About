@@ -10,12 +10,11 @@ struct IAPView: View {
                 iap.image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .foregroundStyle(Color.accentColor.gradient)
             }
             .padding()
-            .background(Color(uiColor: .systemBackground).gradient.secondary)
-            .about_thinBorder(RoundedRectangle(cornerRadius: 16))
+            .foregroundStyle(Color.accentColor.gradient)
         }
+        .about_iap()
     }
 }
 
