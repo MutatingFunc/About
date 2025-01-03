@@ -10,6 +10,7 @@ struct IAPView: View {
                 iap.image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .accessibilityHidden(true)
             }
             .padding()
             .foregroundStyle(Color.accentColor.gradient)
