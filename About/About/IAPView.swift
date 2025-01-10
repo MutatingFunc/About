@@ -11,9 +11,9 @@ struct IAPView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .accessibilityHidden(true)
+                    .foregroundStyle(Color.accentColor.gradient)
             }
             .padding()
-            .foregroundStyle(Color.accentColor.gradient)
         }
         .about_iap()
     }
