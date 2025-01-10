@@ -15,12 +15,11 @@ struct RestorePurchasesButton: View {
             }
         } label: {
             Group {
-                let s = iapCount == 1 ? "" : "s"
                 if isRestoring {
                     ProgressView()
-                        .accessibilityLabel("Restoring purchase\(s)…")
+                        .accessibilityLabel("Restoring purchase(s)")
                 } else {
-                    Text("Restore purchase\(s)")
+                    Text("Restore purchase(s)")
                         .font(.caption)
                 }
             }

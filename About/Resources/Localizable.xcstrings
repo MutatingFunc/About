@@ -1,0 +1,248 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    " Made in\n" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " Made in\n"
+          }
+        }
+      }
+    },
+    "%@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "%@ " : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ "
+          }
+        }
+      }
+    },
+    "✨ " : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "✨ "
+          }
+        }
+      }
+    },
+    "💝 " : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "💝 "
+          }
+        }
+      }
+    },
+    "🔑 " : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🔑 "
+          }
+        }
+      }
+    },
+    "About" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "情報"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完了"
+          }
+        }
+      }
+    },
+    "Hello world!" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "おはよう世界！"
+          }
+        }
+      }
+    },
+    "Help Out" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サポートする"
+          }
+        }
+      }
+    },
+    "I work on this app independently. Your support means a lot!" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このアプリは私が個人で開発しています。皆さんのサポートはとても大きな励みになります！"
+          }
+        }
+      }
+    },
+    "If you're enjoying %@, you might like my other works too!" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@を楽しんでいただけているなら、私の他の作品も気に入っていただけるかもしれません！"
+          }
+        }
+      }
+    },
+    "If you're feeling generous, you can directly support me in bringing you new features regularly!" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "もしよろしければ、定期的に新しい機能をお届けするために直接サポートしていただけると嬉しいです！"
+          }
+        }
+      }
+    },
+    "Leave A Review" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "レビューを残す"
+          }
+        }
+      }
+    },
+    "My Apps" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "私のアップリ"
+          }
+        }
+      }
+    },
+    "Opens an App Store banner" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Store のバナーを開きます"
+          }
+        }
+      }
+    },
+    "Opens my blog, which includes contact info" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "私のブログを開きます。連絡先情報が含まれています。"
+          }
+        }
+      }
+    },
+    "Restore purchase(s)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore purchases"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入情報を復元"
+          }
+        }
+      }
+    },
+    "Restoring purchase(s)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore purchases"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入情報を復元中"
+          }
+        }
+      }
+    },
+    "Swift Playgrounds" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Swift Playgrounds"
+          }
+        }
+      }
+    },
+    "This helps the app get seen" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "これによりアプリが見つけられやすくなります"
+          }
+        }
+      }
+    },
+    "Unlock Features" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "機能をアンロック"
+          }
+        }
+      }
+    },
+    "You unlocked the full app. Thank you so much! 🥰" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリの全機能をアンロックしました。心からありがとうございます！🥰"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

@@ -4,7 +4,7 @@ import About
 struct ContentView: View {
     var body: some View {
         NavigationStack {
-            Text("")
+            Text("Hello world!")
                 .toolbar {
                     AboutLink(app: .simpleEdit)
                 }
