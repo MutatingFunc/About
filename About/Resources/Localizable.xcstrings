@@ -9,7 +9,8 @@
             "value" : " Made in\n"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "%@" : {
       "localizations" : {
@@ -19,7 +20,8 @@
             "value" : "%@"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "%@ " : {
       "localizations" : {
@@ -29,7 +31,8 @@
             "value" : "%@ "
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "✨ " : {
       "localizations" : {
@@ -39,7 +42,8 @@
             "value" : "✨ "
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "💝 " : {
       "localizations" : {
@@ -49,7 +53,8 @@
             "value" : "💝 "
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "🔑 " : {
       "localizations" : {
@@ -59,7 +64,8 @@
             "value" : "🔑 "
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "About" : {
       "localizations" : {
@@ -67,6 +73,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "情報"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Giới thiệu"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关于"
           }
         }
       }
@@ -78,6 +96,18 @@
             "state" : "translated",
             "value" : "完了"
           }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xong"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
+          }
         }
       }
     },
@@ -87,6 +117,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "おはよう世界！"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xin chào thế giới!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你好，世界！"
           }
         }
       }
@@ -98,6 +140,18 @@
             "state" : "translated",
             "value" : "サポートする"
           }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hỗ trợ"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支持"
+          }
         }
       }
     },
@@ -107,6 +161,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "このアプリは私が個人で開発しています。皆さんのサポートはとても大きな励みになります！"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tôi làm việc độc lập trên ứng dụng này. Sự hỗ trợ của bạn rất quan trọng đối với tôi!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我独立开发这个应用，您的支持对我意义重大！"
           }
         }
       }
@@ -118,6 +184,18 @@
             "state" : "translated",
             "value" : "%@を楽しんでいただけているなら、私の他の作品も気に入っていただけるかもしれません！"
           }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nếu bạn thích %@, bạn cũng có thể thích các tác phẩm khác của tôi!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果您喜欢 %@，也许您会喜欢我的其他作品！"
+          }
         }
       }
     },
@@ -127,6 +205,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "もしよろしければ、定期的に新しい機能をお届けするために直接サポートしていただけると嬉しいです！"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nếu bạn cảm thấy hào phóng, bạn có thể trực tiếp ủng hộ tôi trong việc mang đến cho bạn các tính năng mới thường xuyên!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果您愿意，您可以直接支持我，帮助我定期为您带来新功能！"
           }
         }
       }
@@ -138,6 +228,18 @@
             "state" : "translated",
             "value" : "レビューを残す"
           }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Để lại đánh giá"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "留下评价"
+          }
         }
       }
     },
@@ -147,6 +249,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "私のアップリ"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ứng dụng của tôi"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的应用"
           }
         }
       }
@@ -158,6 +272,18 @@
             "state" : "translated",
             "value" : "App Store のバナーを開きます"
           }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mở biểu ngữ App Store"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开 App Store 横幅"
+          }
         }
       }
     },
@@ -167,6 +293,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "私のブログを開きます。連絡先情報が含まれています。"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mở blog của tôi, bao gồm thông tin liên hệ"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开我的博客，包含联系信息"
           }
         }
       }
@@ -184,6 +322,18 @@
             "state" : "translated",
             "value" : "購入情報を復元"
           }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Khôi phục giao dịch mua"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "恢复购买"
+          }
         }
       }
     },
@@ -192,13 +342,25 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Restore purchases"
+            "value" : "Restoring purchases"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "購入情報を復元中"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đang khôi phục giao dịch mua"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在恢复购买"
           }
         }
       }
@@ -211,7 +373,8 @@
             "value" : "Swift Playgrounds"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "This helps the app get seen" : {
       "localizations" : {
@@ -219,6 +382,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "これによりアプリが見つけられやすくなります"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Điều này giúp ứng dụng được nhiều người nhìn thấy hơn"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这有助于让更多人看到此应用"
           }
         }
       }
@@ -230,6 +405,18 @@
             "state" : "translated",
             "value" : "機能をアンロック"
           }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mở khóa tính năng"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解锁功能"
+          }
         }
       }
     },
@@ -239,6 +426,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "アプリの全機能をアンロックしました。心からありがとうございます！🥰"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bạn đã mở khóa toàn bộ ứng dụng. Cảm ơn bạn rất nhiều! 🥰"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您已解锁完整应用，非常感谢！🥰"
           }
         }
       }
