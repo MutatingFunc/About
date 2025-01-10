@@ -10,5 +10,5 @@ public struct IAPProduct: Equatable, Identifiable {
         self.isKnownUnlocked = isKnownUnlocked
     }
     
-    internal static let example = IAPProduct(id: "abc", image: Image(systemName: "cup.and.heat.waves"))
+    @MainActor internal static let example = IAPProduct(id: "abc", image: Image(systemName: "cup.and.heat.waves"))
 }
