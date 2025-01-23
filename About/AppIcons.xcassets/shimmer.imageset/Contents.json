@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "AppIcon.png",
+      "filename" : "PNG image.png",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "PNG image.png",
+      "filename" : "PNG image 2.png",
       "idiom" : "universal"
     }
   ],
