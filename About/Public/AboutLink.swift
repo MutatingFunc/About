@@ -15,7 +15,11 @@ public struct AboutLink: View {
         Button {
             showAbout.toggle()
         } label: {
-            Label("About", systemImage: "info.circle")
+            if #available(iOS 26, *) {
+                Label("About", systemImage: "info")
+            } else {
+                Label("About", systemImage: "info.circle")
+            }
         }.sheet(isPresented: $showAbout) {
             AboutPage(config)
         }
