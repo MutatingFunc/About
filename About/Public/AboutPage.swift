@@ -160,7 +160,7 @@ public struct AboutPage: View {
                     .accessibilityHidden(true) // Use button as heading
                 if expanded {
                     Link(destination: URL(string: "https://mutatingfunc.github.io/")!) {
-                        let byLine = "by James"
+                        let byLine = "by Jamie"
                         (Text("\(byLine) ") + Text("\(Image(systemName: "arrow.up.right.square"))").font(.callout))
                             .accessibilityLabel(byLine).accessibilityHint(Text("Opens my blog, which includes contact info"))
                             .font(.title3)
