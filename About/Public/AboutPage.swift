@@ -118,15 +118,10 @@ public struct AboutPage: View {
                     .background {
                         GeometryReader { geometry in
                             Color.clear.onChange(of: -geometry.frame(in: .scrollView(axis: .vertical)).minY, initial: true) { oldValue, newValue in
-                                let new: Bool
-                                if #available(iOS 26, *) {
-                                    new = newValue < 8
+                                let new = if newValue > oldValue {
+                                    newValue < 16
                                 } else {
-                                    new = if newValue > oldValue {
-                                        newValue < 16
-                                    } else {
-                                        newValue < 24
-                                    }
+                                    newValue < 24
                                 }
                                 if new != self.isExpanded {
                                     self.isExpanded = new
@@ -138,40 +133,26 @@ public struct AboutPage: View {
                 }
                     .productViewStyle(.compact)
                     .navigationBarBackButtonHidden()
+                    .safeAreaInset(edge: .top, spacing: 0) {
+                        header(expanded: true).hidden()
+                    }
+                    .ignoresSafeArea(.container, edges: .top)
+                    .overlay(alignment: .top) {
+                        header(expanded: isExpanded)
+                            .ignoresSafeArea(.all, edges: .top)
+                            .animation(.default.speed(2), value: isExpanded)
+                    }
                 if #available(iOS 26, *) {
                     scrollView
                         .toolbar {
-                            ToolbarItem(placement: .topBarLeading) {
+                            ToolbarItem(placement: .topBarTrailing) {
                                 Button(role: .close) {
                                     dismiss()
                                 }
                             }
-                            ToolbarItem(placement: .topBarLeading) {
-                                header(expanded: false)
-                                    .compositingGroup()
-                                    .opacity(isExpanded ? 0 : 1)
-                                    .accessibilityHidden(true)
-                                    .animation(.default.speed(2), value: isExpanded)
-                            }.sharedBackgroundVisibility(.hidden)
-                            ToolbarItem(placement: .title) {
-                                Color.clear
-                            }
-                            ToolbarItem(placement: .largeTitle) {
-                                header(expanded: true)
-                                    .compositingGroup()
-                                    .opacity(isExpanded ? 1 : 0)
-                                    .animation(.default.speed(2), value: isExpanded)
-                            }.sharedBackgroundVisibility(.hidden)
                         }
                 } else {
                     scrollView
-                        .safeAreaInset(edge: .top, spacing: 0) {
-                            header(expanded: true).hidden()
-                        }
-                        .overlay(alignment: .top) {
-                            header(expanded: isExpanded)
-                                .animation(.default.speed(2), value: isExpanded)
-                        }
                 }
             }
         }
