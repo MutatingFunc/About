@@ -158,8 +158,13 @@ public struct AboutPage: View {
         }
     }
     
-    @State private var isHoveringBlogLink = false
-    
+    func headerSpacing(expanded: Bool) -> Double {
+        if #available(iOS 26, *) {
+            expanded ? 18 : 6
+        } else {
+            expanded ? 8 : 4
+        }
+    }
     @ViewBuilder
     func header(expanded: Bool) -> some View {
         VStack(spacing: 0) {
@@ -173,7 +178,7 @@ public struct AboutPage: View {
                         .transition(.blurReplace.combined(with: .move(edge: .top)))
                 }
             }.lineLimit(nil).fixedSize()
-            HStack {
+            HStack(spacing: headerSpacing(expanded: expanded) / 2) {
                 let iconHeight: Double = expanded ? 76 : 48
                 Color.clear
                     .frame(width: iconHeight, height: iconHeight)
@@ -200,7 +205,7 @@ public struct AboutPage: View {
                 }
             }
             .multilineTextAlignment(.leading)
-            .safeAreaPadding([.top, .horizontal], expanded ? 8 : 4)
+            .safeAreaPadding([.top, .horizontal], headerSpacing(expanded: expanded))
             .padding(.bottom, expanded ? 8 : 4)
             
             if #available(iOS 26, *) {

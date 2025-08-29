@@ -27,7 +27,7 @@ let package = Package(
             targets: ["About_App"],
             bundleIdentifier: "James.About",
             teamIdentifier: "VKFDYMU9HJ",
-            displayVersion: "4.1.2",
+            displayVersion: "4.1.3",
             bundleVersion: "1",
             appIcon: .placeholder(icon: .leaf),
             accentColor: .presetColor(.red),

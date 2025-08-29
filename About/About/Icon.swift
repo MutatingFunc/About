@@ -10,6 +10,13 @@ struct Icon: View {
     
     @Environment(\.colorScheme) private var colorScheme
     
+    var iconCornerRadiusMultiplier: Double {
+        if #available(iOS 26, *) {
+            2/9
+        } else {
+            13/50
+        }
+    }
     var body: some View {
         VStack {
             GeometryReader { geometry in
@@ -32,7 +39,7 @@ struct Icon: View {
                         }
                     }
                     .compositingGroup()
-                    .about_thinBorder(RoundedRectangle(cornerRadius: geometry.size.width/4.75, style: .continuous))
+                    .about_thinBorder(RoundedRectangle(cornerRadius: geometry.size.width * iconCornerRadiusMultiplier, style: .continuous))
             }
             .frame(maxWidth: 76, maxHeight: 76)
             .aspectRatio(contentMode: .fit)
