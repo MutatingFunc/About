@@ -137,34 +137,25 @@ public struct AboutPage: View {
                         header(expanded: true).hidden()
                     }
                     .ignoresSafeArea(.container, edges: .top)
-                    .overlay(alignment: .top) {
-                        header(expanded: isExpanded)
-                            .ignoresSafeArea(.all, edges: .top)
-                            .animation(.default.speed(2), value: isExpanded)
-                    }
                 if #available(iOS 26, *) {
                     scrollView
-                        .toolbar {
-                            ToolbarItem(placement: .topBarTrailing) {
-                                Button(role: .close) {
-                                    dismiss()
-                                }
-                            }
+                        .safeAreaBar(edge: .top, spacing: 0) {
+                            header(expanded: isExpanded)
+                                .ignoresSafeArea(.all, edges: .top)
+                                .animation(.default.speed(2), value: isExpanded)
                         }
                 } else {
                     scrollView
+                        .overlay(alignment: .top) {
+                            header(expanded: isExpanded)
+                                .ignoresSafeArea(.all, edges: .top)
+                                .animation(.default.speed(2), value: isExpanded)
+                        }
                 }
             }
         }
     }
     
-    func headerSpacing(expanded: Bool) -> Double {
-        if #available(iOS 26, *) {
-            expanded ? 18 : 6
-        } else {
-            expanded ? 8 : 4
-        }
-    }
     @ViewBuilder
     func header(expanded: Bool) -> some View {
         VStack(spacing: 0) {
@@ -177,8 +168,8 @@ public struct AboutPage: View {
                         .foregroundStyle(.tint)
                         .transition(.blurReplace.combined(with: .move(edge: .top)))
                 }
-            }.lineLimit(nil).fixedSize()
-            HStack(spacing: headerSpacing(expanded: expanded) / 2) {
+            }.lineLimit(nil)
+            let header = HStack {
                 let iconHeight: Double = expanded ? 76 : 48
                 Color.clear
                     .frame(width: iconHeight, height: iconHeight)
@@ -192,7 +183,16 @@ public struct AboutPage: View {
                 VStack(alignment: .leading) {
                     title
                 }.frame(maxWidth: .infinity, alignment: .leading)
-                if #available(iOS 26, *) {} else {
+                if #available(iOS 26, *) {
+                    Button(role: .close) {
+                        dismiss()
+                    }
+                    .labelStyle(.iconOnly)
+                    .buttonStyle(.glass)
+                    .controlSize(.large)
+                    .buttonBorderShape(.circle)
+                    .padding(8)
+                } else {
                     Button {
                         dismiss()
                     } label: {
@@ -205,8 +205,16 @@ public struct AboutPage: View {
                 }
             }
             .multilineTextAlignment(.leading)
-            .safeAreaPadding([.top, .horizontal], headerSpacing(expanded: expanded))
-            .padding(.bottom, expanded ? 8 : 4)
+            if #available(iOS 16, *) {
+                header
+                    .safeAreaPadding([.top, .leading], expanded ? 18 : 6)
+                    .safeAreaPadding([.trailing], expanded ? 4 : 0)
+                    .padding([.bottom], expanded ? 8 : 4)
+            } else {
+                header
+                    .safeAreaPadding([.top, .horizontal], expanded ? 8 : 4)
+                    .padding([.bottom], expanded ? 8 : 4)
+            }
             
             if #available(iOS 26, *) {
                 Divider()
