@@ -154,6 +154,7 @@ public struct AboutPage: View {
                 }
             }
         }
+        .bp_toolbarVerticalBehavior(.disabled)
     }
     
     @ViewBuilder
@@ -230,6 +231,26 @@ public struct AboutPage: View {
                 Rectangle()
                     .fill(.background.secondary)
             }
+        }
+    }
+}
+
+/// Backport of `ToolbarVerticalBehavior`, available from iOS 27.1.
+private enum BPToolbarVerticalBehavior {
+    case automatic, disabled
+}
+
+private extension View {
+    /// Backport of `toolbarVerticalBehavior(_:)`. No effect before iOS 27.1.
+    @ViewBuilder
+    func bp_toolbarVerticalBehavior(_ behavior: BPToolbarVerticalBehavior) -> some View {
+        if #available(iOS 27.1, *) {
+            switch behavior {
+            case .automatic: toolbarVerticalBehavior(.automatic)
+            case .disabled: toolbarVerticalBehavior(.disabled)
+            }
+        } else {
+            self
         }
     }
 }
